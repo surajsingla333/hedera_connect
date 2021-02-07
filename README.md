@@ -16,7 +16,7 @@ Various Hedera APIs and services which are currently used are:
 
 [Hedera Cryptocurrency Accounts](https://docs.hedera.com/guides/docs/hedera-api/cryptocurrency-accounts), to create, add, and manage Hedera Accounts. \
 [Hedera Token Service](https://docs.hedera.com/guides/docs/hedera-api/token-service), for creating and managing tokens in the wallet. \
-[Hedera Smart Contracts](https://docs.hedera.com/guides/docs/hedera-api/smart-contracts), for interacting with smart contracts based dApps. \
+[Hedera Smart Contracts](https://docs.hedera.com/guides/docs/hedera-api/smart-contracts), for interacting with smart contracts based dApps.
 
 ###### For more details about Hedera Hashgraph goto :  https://docs.hedera.com/guides/
 

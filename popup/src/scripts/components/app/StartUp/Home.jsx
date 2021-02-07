@@ -177,7 +177,7 @@ class Home extends Component {
                         error: false,
                         errorMessage: res.message,
                         associationSuccess: true,
-                        associationMessage: "Token is not associated with this account"
+                        associationMessage: "Token is now associated with this account"
                     })
                 } else {
                     console.log("ERROR", res.message)
@@ -189,7 +189,7 @@ class Home extends Component {
                             error: false,
                             errorMessage: res.message,
                             associationSuccess: true,
-                            associationMessage: "Token is not associated with this account"
+                            associationMessage: "Token is now associated with this account"
                         })
                     else
                         this.setState({
@@ -211,7 +211,7 @@ class Home extends Component {
                         error: false,
                         errorMessage: res.message,
                         associationSuccess: true,
-                        associationMessage: "Token is not associated with this account"
+                        associationMessage: "Token is now associated with this account"
                     })
                 else
                     this.setState({
@@ -309,7 +309,7 @@ class Home extends Component {
                                     <div></div>
                                 )}
                             {this.state.associationSuccess ? (
-                                <Form.Control.Feedback type="success" className="text_align_left font-10" className="text-success d-flex">
+                                <Form.Control.Feedback type="success" className="text-success font-10">
                                     {this.state.associationMessage}
                                 </Form.Control.Feedback>
                             ) : (
