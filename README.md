@@ -58,7 +58,7 @@ After the password is setup, user will be logged in and will be able to use the 
 The users can add as many accounts or create a new account in the wallet. The account with which they will register will be treated as the default accounts.\
 The users can change between different accounts using a dropdown menu at the top.\
 The users will be able to create their own tokens or add an existing tokens to the wallet for token management. \
-They can send hbar or tokens to any other users using the account Id of the receiver. \ 
+They can send hbar or tokens to any other users using the account Id of the receiver. 
 
 The wallet sends a `windows.hedera` element at the current webpage, which the users can access in their dApps.\
 For example:\
@@ -76,7 +76,7 @@ For example:\
 
 ### Security
 All of the users details will be stored in a secured extension environment only and no data is stored on servers. This will ensure that the data is not exposed online and users will have complete control over their private keys even as they use this extension.\
-Users will only have one way to retrieve their account, which is by using the account's private key, so it is adviced to the users to securely store their accounts` provate keys. \
+Users will only have one way to retrieve their account, which is by using the account's private key, so it is adviced to the users to securely store their accounts` private keys.
 
 The private keys are encrypted using the user's password so as to protect the wallet from any offline attacks and the user password itself is securely hashed and only the hashes are matched to confirm the login. \
 If the user forgets his password, currently, he won't be able to login and the account will be locked in. So it is highly recommended to securely store the password as well.
