@@ -43,6 +43,20 @@ Alternatively, you can download the `build.zip` file from this repository only. 
 Unzip the downloaded file and follow the above steps in Google Chrome to install the extension.
 
 
+## Images
+
+<img src='images/1_get_started.png' height="300px">    <img src='images/2_account_details_signup.png' height="300px">   <img src='images/3_set_password.png' height="300px"> 
+
+
+<img src='images/4_dashboard.png' height="300px">   <img src='images/5_create_new_account.png' height="300px">   <img src='images/6_new_account_created.png' height="300px">
+
+
+<img src='images/7_add_account.png' height="300px">   <img src='images/8_add_token.png' height="300px">   <img src='images/9_send_hbar.png' height="300px">
+
+
+<img src='images/10_send_tokens.png' height="300px">   <img src='images/11_login.png' height="300px">
+
+
 ## Details
 Below we have explained about the registration process, usage and security concerns related to the extension. 
 
