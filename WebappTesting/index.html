@@ -12,11 +12,11 @@ The new contract ID is 0.0.276840
 </head>
 
 <body>
-    <h2>Fetching data</h2>
 
     <h4>start server with : `python -m http.server 8000`</h4>
-
     <br />
+    <button onClick="onAlert()">Alert account details</button>
+    <br><br />
     <input id="fnNameToCall" type="text" placeholder="function name" />
     <input id="contAddToCall" type="text" placeholder="address" />
     <button onclick="onCall()">Calling Function</button>
@@ -29,8 +29,9 @@ The new contract ID is 0.0.276840
         <button onclick="onSend()">Send Function</button>
     </div>
     <br />
-    <div id="event">
-        <h6>dfgsdfg</h6>
+    <div>
+        <h1 id="event">
+        </h1>
     </div>
 
     <br />
@@ -60,15 +61,14 @@ The new contract ID is 0.0.276840
         }, 2000);
 
         const onAlert = () => {
-            console.log("Getting address", window.tezos.account);
-            alert(window.tezos.account);
+            console.log("Getting address", window.hedera.account);
+            alert(`Account Name - ${window.hedera.account.currentAccountName}\nAccount Id - ${window.hedera.account.currentAccountId}`);
         }
 
         const onCall = () => {
             let functionName = document.getElementById("fnNameToCall").value;
             let contractAddress = document.getElementById("contAddToCall").value;
             let details;
-            // { name: name, address: address }
             window.hedera.callContract(contractAddress, functionName)
 
             document.addEventListener('smartContractResponseOfCall', (e) => {
