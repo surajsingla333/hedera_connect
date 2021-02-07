@@ -1,0 +1,1 @@
+export const SAVE_WALLET = "SAVE_WALLET"

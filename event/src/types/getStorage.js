@@ -1,0 +1,1 @@
+export const GET_BODY = "GET_BODY"

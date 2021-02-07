@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    ACC 0.0.257037
+ACC 302e020100300506032b657004220420063b0f5496c6757e47246fe232cde630836be395ed1e8572da50fb2fff72350f
+The new file ID is: 0.0.276839
+The new contract ID is 0.0.276840
+ -->
+
+<head>
+    <title>Testing Extenstion</title>
+</head>
+
+<body>
+    <h2>Fetching data</h2>
+
+    <h4>start server with : `python -m http.server 8000`</h4>
+
+    <br />
+    <input id="fnNameToCall" type="text" placeholder="function name" />
+    <input id="contAddToCall" type="text" placeholder="address" />
+    <button onclick="onCall()">Calling Function</button>
+    <br><br />
+
+    <div>
+        <input id="fnNameToSend" type="text" placeholder="function name" />
+        <input id="contAddToSend" type="text" placeholder="Contract Address" />
+        <input id="param" type="text" placeholder="Param" />
+        <button onclick="onSend()">Send Function</button>
+    </div>
+    <br />
+    <div id="event">
+        <h6>dfgsdfg</h6>
+    </div>
+
+    <br />
+    <script>
+        setTimeout(async () => {
+
+            let hedera = await window.hedera;
+            console.log("INSIDE MY WEBPAGE");
+            // console.log("WEB PAGE", tez.isTezos);
+            console.log("HEDERA", hedera)
+            console.log("WEB PAGE", hedera.isHedera);
+
+            if (hedera.isHedera) {
+                console.log("Extension is available")
+
+                // hedera.allowClient({})
+
+                // hedera.callContract("0.0.293825", "getName")
+                // // hedera.sendContract("0.0.293825", "setName", ["MANGOOOO"])
+
+                // document.addEventListener('smartContractResponseOfCall', (e) => {
+                //     console.log("LISTING CONT RESP", e)
+                // })
+
+            }
+
+        }, 2000);
+
+        const onAlert = () => {
+            console.log("Getting address", window.tezos.account);
+            alert(window.tezos.account);
+        }
+
+        const onCall = () => {
+            let functionName = document.getElementById("fnNameToCall").value;
+            let contractAddress = document.getElementById("contAddToCall").value;
+            let details;
+            // { name: name, address: address }
+            window.hedera.callContract(contractAddress, functionName)
+
+            document.addEventListener('smartContractResponseOfCall', (e) => {
+                console.log("LISTING CONT RESP", e, e.detail)
+                let response = e.detail.result.response
+                // create a new div element 
+                let newDiv = document.getElementById("event");
+                console.log("DETAILS", details, response);
+                // and give it some content 
+                // newDiv.replaceChild
+                let newContent = document.createTextNode(`${response}`);
+                // add the text node to the newly created div
+                newDiv.replaceChild(newContent, newDiv.childNodes[0]);
+
+            });
+
+            console.log("Details from event", details);
+        }
+
+        const onSend = () => {
+
+            let param = document.getElementById("param").value;
+            let contractAddress = document.getElementById("contAddToSend").value;
+            let functionName = document.getElementById("fnNameToSend").value;
+            let details;
+            // { name: name, address: address }
+
+            window.hedera.sendContract(contractAddress, functionName, [`${param}`])
+
+            document.addEventListener('smartContractResponseOfSend', (e) => {
+                console.log("LISTING CONT RESP send", e, e.detail)
+
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+export const SEND_TO_CONTENT = "SEND_TO_CONTENT"
+export const ACCESS_TO_CLIENT = "ACCESS_TO_CLIENT"

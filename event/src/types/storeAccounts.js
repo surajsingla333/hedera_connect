@@ -1,0 +1,1 @@
+export const STORE_ACCOUNT = "STORE_ACCOUNT"

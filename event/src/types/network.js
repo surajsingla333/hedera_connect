@@ -1,0 +1,1 @@
+export const CHANGE_NETWORK = "CHANGE_NETWORK"

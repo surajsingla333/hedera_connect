@@ -1,0 +1,234 @@
+:root {
+    --primary-color-1: #333333;
+    --primary-color-2: #ffffff;
+    --primary-color-3: #939e9e;
+    --primary-color-4: #706c61;
+    --primary-color-1-81: #33333381;
+    --primary-color-4-81: #706c6181;
+}
+
+/* app */
+#app {
+    width: 350px !important;
+    height: 550px !important;
+}
+
+/* display */
+.d-flex {
+    display: flex;
+}
+
+/* padding */
+.pt_10 {
+    padding-top: 10px;
+}
+.p_10 {
+    padding: 10px;
+}
+.p_15 {
+    padding: 15px;
+}
+
+/* margin */
+.mt_5 {
+    margin-top: 5px;
+}
+.mt_10 {
+    margin-top: 10px;
+}
+.mb_5 {
+    margin-bottom: 5px;
+}
+.m_5 {
+    margin: 5px;
+}
+.m_10 {
+    margin: 10px;
+}
+.m_20 {
+    margin: 20px;
+}
+.mt_10 {
+    margin-top: 10px;
+}
+
+/* width */
+.w_18rem {
+    width: 18rem;
+}
+.w_100 {
+    width: 100% !important;
+}
+.container_width {
+    width: 350px !important;
+}
+.width_86_px{
+    width: 86px !important;
+}
+
+/* height */
+.h_100 {
+    height: 100% !important;
+}
+.container_heiht {
+    height: 550px !important;
+}
+
+/* font */
+.font-10 {
+    font-size: 10px;
+}
+.font-14 {
+    font-size: 14px;
+}
+.font-15 {
+    font-size: 15px;
+}
+.font-weight-600{
+    font-weight: 600;
+}
+
+/* text-align */
+.text_align_left {
+    text-align: left;
+}
+.text_align_center {
+    text-align: center;
+}
+
+/* button color */
+.btn-primary {
+    color: var(--primary-color-2);
+    background-color: var(--primary-color-1);
+    background-image: none;
+    border-color: var(--primary-color-1);
+}
+.btn-primary:hover {
+    color: var(--primary-color-1);
+    background-color: var(--primary-color-2);
+    background-image: none;
+    border-color: var(--primary-color-1);
+}
+.show>.btn-primary.dropdown-toggle, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:active, .btn-primary:focus {
+    color: var(--primary-color-2);
+    background-color: var(--primary-color-4);
+    background-image: none;
+    border-color: var(--primary-color-4);
+}
+
+/* z_index */
+.z_100000{
+    z-index: 100000;
+}
+
+/* background_color */
+.bg_transparent{
+    background: transparent;
+}
+
+/* random */
+
+select option:hover, select option:focus{
+    background: var(--primary-color-3);
+}
+select option:active{
+    background: var(--primary-color-1);
+}
+
+.header_corner_1 {
+    position: absolute;
+    left: 0;
+    right: calc(230px);
+    top: 0%;
+    bottom: 88%;
+    background: var(--primary-color-1-81);
+    border-radius: 0px 0px 1000px 1000px;
+}
+.header_corner_2 {
+    position: absolute;
+    left: 0;
+    right: calc(284px);
+    top: 0;
+    bottom: calc(430px);
+    background: var(--primary-color-1-81);
+    border-radius: 0px 1000px 1000px 0px;
+}
+.back_button {
+    position: absolute;
+    left: 0;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    color: beige;
+    background-color: var(--primary-color-1);
+    border: black;
+}
+.back_button .back_arrow {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 17px solid #f5efef;
+    z-index: 1;
+    position: absolute;
+    left: 4px;
+    top: 5px;
+}
+.back_button:hover {
+    background-color: #f5efef;
+}
+.back_button:hover + .back_button:hover .back_arrow,
+.back_button .back_arrow:hover {
+    border-right: 17px solid var(--primary-color-1);
+}
+.footer_left {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 0;
+    padding: 0px;
+    background: var(--primary-color-1-81);
+}
+.footer_right {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    right: 0;
+    padding: 0px;
+    background: var(--primary-color-1-81);
+}
+
+#wave {
+    /* background: #e0efe3; */
+    position: relative;
+    height: 50px;
+    width: 600px;
+    background: var(--primary-color-4);
+}
+#wave:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 0% 0% 18% 91%;
+    width: 50%;
+    height: 80px;
+    background-color: white;
+    right: 11px;
+    top: -44px;
+}
+#wave:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 10% 98% 0% 0%;
+    width: 58%;
+    height: 80px;
+    background-color: var(--primary-color-4);
+    left: 13px;
+    top: -30px;
+}
+.invalid-feedback {
+    display: flex;
+}
+
+.dropdown-menu.show{
+    z-index: 100001;
+}

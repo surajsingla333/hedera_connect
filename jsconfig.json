@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es5",
+      "outDir": "build",                          
+      "rootDir": "./",
+      "strict": true,         
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "jsx": "react"
+    },
+    "exclude": ["node_modules"],
+    "include": ["API","content", "event", "popup", "utils/FunctionsType.js" ]
+  }
