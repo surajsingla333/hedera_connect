@@ -19,6 +19,12 @@
 }
 
 /* padding */
+.pr_0{
+    padding-right: 0px;
+} 
+.pl_0{
+    padding-left: 0px;
+}
 .pt_10 {
     padding-top: 10px;
 }
@@ -64,6 +70,9 @@
 }
 .width_86_px{
     width: 86px !important;
+}
+.width_100_px{
+    width: 100px !important;
 }
 
 /* height */

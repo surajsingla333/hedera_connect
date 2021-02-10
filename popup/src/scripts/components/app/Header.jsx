@@ -9,10 +9,11 @@ import { decryptKeys } from '../../../../../API/src/encryption/decryptAES';
 import { getBalance } from '../../../../../API/src/getBalance/getBalance'
 
 import { CHANGE_NETWORK } from '../../../../../event/src/types/network'
+import { SEND_TO_CONTENT } from '../../../../../event/src/types/sendToContent'
 
 import { RESET_CONTENT_ACTIONS } from '../../../../../event/src/types/content/callText'
 
-import { inThirtyMinutes, SET_NEW_BALANCE_IN_HOME, HomePath, CreateTokenPath, AddNewAccountPath, CreateNewAccountPath, AddTokenPath } from '../utils/constants'
+import { inThirtyMinutes, SET_NEW_BALANCE_IN_HOME, HomePath, CreateTokenPath, AddNewAccountPath, CreateNewAccountPath, AddTokenPath, SignMessagePath } from '../utils/constants'
 
 class Header extends Component {
     state = {
@@ -75,7 +76,7 @@ class Header extends Component {
         Cookies.set("name", changedAccount.name, {
             expires: inThirtyMinutes
         });
-
+        this.props.sendAccountToContent({ accountId: changedAccount.accountId, accountName: changedAccount.name })
         this.setState({
             selectedValue: changedAccount.name
         })
@@ -178,7 +179,7 @@ class Header extends Component {
                     <Row>
                         <Col>
                             <Form onChange={this.onRadioChange}>
-                                <Form.Group controlId="exampleForm.SelectCustomSizeSm">
+                                <Form.Group controlId="network_dropdown">
                                     <Form.Control as="select" value={Cookies.get("network")} size="sm" custom readOnly>
                                         <option value="testnet">TestNet</option>
                                     </Form.Control>
@@ -188,7 +189,7 @@ class Header extends Component {
 
                         <Col>
                             <Form onChange={this.onRadioChangeAccount}>
-                                <Form.Group controlId="exampleForm.SelectCustomSizeSm">
+                                <Form.Group controlId="accounts_dropdown">
                                     <Form.Control as="select" value={this.state.selectedValue} size="sm" custom>
                                         {accounts}
                                     </Form.Control>
@@ -204,6 +205,9 @@ class Header extends Component {
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(CreateTokenPath)}>Create new token</Dropdown.Item>
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(AddTokenPath)}>Add existing token to wallet</Dropdown.Item>
                                 <Dropdown.Divider />
+                                <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(SignMessagePath)}>Sign Message</Dropdown.Item>
+                                <Dropdown.Divider />
+
                             </DropdownButton>
                         </Col>
 
@@ -227,6 +231,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         changeNetwork: newNetwork => dispatch({ type: CHANGE_NETWORK, state: newNetwork }),
+        sendAccountToContent: newNetwork => dispatch({ type: SEND_TO_CONTENT, state: newNetwork }),
         resetContentCalls: newData => dispatch({ type: RESET_CONTENT_ACTIONS, state: newData })
     }
 }

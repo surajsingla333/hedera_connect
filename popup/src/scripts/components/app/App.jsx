@@ -10,6 +10,7 @@ import CreateNewAccount from './Header/CreateNewAccount'
 import AddNewAccount from './Header/AddNewAccount'
 import CreateToken from './Header/CreateToken'
 import AddToken from './Header/AddToken'
+import SignMessage from './Header/SignMessage'
 
 import AddFirstAccount from './Registration/AddFirstAccount'
 import Password from './Registration/Password'
@@ -32,7 +33,7 @@ import './App.css';
 import { UPDATE_STATE } from '../../../../../event/src/types/_updateState'
 import { SEND_TO_CONTENT } from '../../../../../event/src/types/sendToContent'
 
-import { SendTokensPath, AddTokenPath, HomePath, LoginPath, SignupPath, SendFundsPath, PasswordPath, AddFirstAccountPath, AddNewAccountPath, CreateNewAccountPath, CreateTokenPath } from '../utils/constants'
+import { SendTokensPath, AddTokenPath, HomePath, LoginPath, SignupPath, SendFundsPath, PasswordPath, AddFirstAccountPath, AddNewAccountPath, CreateNewAccountPath, CreateTokenPath, SignMessagePath } from '../utils/constants'
 import { CHANGE_VIEW } from '../../../../../event/src/types/gotoView'
 
 import { GRANT_CLIENT_ACCESS, CALL_SMART_CONTRACT, SEND_SMART_CONTRACT } from '../../../../../utils/constants/FunctionsType'
@@ -135,6 +136,8 @@ class App extends Component {
                     return <CreateToken />
                 case AddTokenPath:
                     return <AddToken />
+                case SignMessagePath:
+                    return <SignMessage />
                 default:
                     return <Home />
             }
