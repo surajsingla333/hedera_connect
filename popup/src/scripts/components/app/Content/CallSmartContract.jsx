@@ -120,7 +120,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSigningTrnasaction: newState => dispatch({ type: FUNCTION_CALLED, state: newState }), changeView: newState => dispatch({ type: CHANGE_VIEW, state: newState })
+        onSigningTrnasaction: newState => dispatch({ type: FUNCTION_CALLED, state: newState }),
+        changeView: newState => dispatch({ type: CHANGE_VIEW, state: newState })
     }
 };
 

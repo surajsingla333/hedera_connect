@@ -35,6 +35,14 @@ The new contract ID is 0.0.276840
     </div>
 
     <br />
+
+    <div>
+        <input id="topicId" type="text" placeholder="Topic ID" />
+        <input id="topicMemo" type="text" placeholder="Topic Memo" />
+        <input id="message" type="text" placeholder="Message" />
+        <button onclick="onSign()">Sign Message</button>
+    </div>
+    <br />
     <script>
         setTimeout(async () => {
 
@@ -103,6 +111,21 @@ The new contract ID is 0.0.276840
 
             });
 
+        }
+
+        const onSign = () => {
+            let topicId = document.getElementById("topicId").value;
+            let topicMemo = document.getElementById("topicMemo").value;
+            let message = document.getElementById("message").value;
+            let details;
+            // { name: name, address: address }
+
+            window.hedera.signMessage(topicId, topicMemo, message)
+
+            // document.addEventListener('smartContractResponseOfSend', (e) => {
+            //     console.log("LISTING CONT RESP send", e, e.detail)
+
+            // });
         }
 
     </script>

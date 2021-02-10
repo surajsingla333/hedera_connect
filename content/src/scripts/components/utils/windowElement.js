@@ -1,16 +1,8 @@
-import { ALLOW_CLIENT_ACCESS, CALL_TO_SIGN_TRANSACTION, SEND_TO_SIGN_TRANSACTION } from './EventConstants';
+import { ALLOW_CLIENT_ACCESS, CALL_TO_SIGN_TRANSACTION, SEND_TO_SIGN_TRANSACTION, SIGN_MESSAGE } from './EventConstants';
 
 export const generateWindowHederaElement = (account, value) => {
     return `window.hedera = {
 
-        bar:function(work) {
-          console.log("IN FOO:BARR");
-  
-          let event = new CustomEvent("my_event", {detail: work});
-         document.dispatchEvent(event);
-          return "APLE";
-        }, 
-  
         isHedera: ` + JSON.stringify(account.currentAccountId ? true : false) + `,
         account: ` + JSON.stringify(account) + `,
         value: ` + JSON.stringify(value) + `,
@@ -25,51 +17,43 @@ export const generateWindowHederaElement = (account, value) => {
 
         callContract: function(address, functionName, params, data){
             console.log("inside callContract")
-            if(!address || !functionName || (params && typeof params !== Array)){
-                console.log("wrong params")
-                return "wrong parameters to call the contract"
-            } else
-            {
+            if(address && functionName && (!params || (params && typeof params === 'object' && params.length > 0))) {
                 let event = new CustomEvent( ` + JSON.stringify(CALL_TO_SIGN_TRANSACTION) + `, {detail: {address, functionName, params, data}});
                 document.dispatchEvent(event);
                 return "call_to_sign_transaction";
+            } else {
+                console.log("wrong params")
+                return "wrong parameters to call the contract"
             }
+            
         },
 
         sendContract: function(address, functionName, params, data){
             console.log("inside sendContract")
-            if(!address || !functionName || (params && typeof params !== 'object' && params.length > 0)){
-                console.log(address, functionName, params, typeof params)
-                console.log("wrong params")
-                return "wrong parameters to call the contract"
-            } else
-            {
+            if(address && functionName && (!params || (params && typeof params === 'object' && params.length > 0))){
                 let event = new CustomEvent( ` + JSON.stringify(SEND_TO_SIGN_TRANSACTION) + `, {detail: {address, functionName, params, data}});
                 document.dispatchEvent(event);
-                return "call_to_sign_transaction";
+                return "send_to_sign_transaction";
+            } else{
+                console.log(address, functionName, params, typeof params)
+                console.log("wrong params")
+                return "wrong parameters to send to contract"
             }
+            
         },
 
-        transfer:function(data) {
-          console.log("IN FOO:BARR");
-  
-          let event = new CustomEvent("transfer", {detail: data});
-         document.dispatchEvent(event);
-          return "transfer";
-        }, 
-
-        invokeContract:function(data) {
-          console.log("IN FOO:BARR");
-          let event = new CustomEvent("invoke", {detail: data});
-         document.dispatchEvent(event);
-          return "invoked";
-        },
-
-        send:function(data) {
-          console.log("IN FOO:BARR");
-          let event = new CustomEvent("send", {detail: data});
-         document.dispatchEvent(event);
-          return "sent";
+        signMessage: function(topicId, topicMemo, message, data){
+            console.log("inside signMessage")
+            if(message && message !== "" && ((topicId && topicId !== "") || (topicMemo && topicMemo !== ""))) {
+                let event = new CustomEvent( ` + JSON.stringify(SIGN_MESSAGE) + `, {detail: {topicId, topicMemo, message, data}});
+                document.dispatchEvent(event);
+                return "sign_message";
+            } else {
+                console.log(topicId, topicMemo, message, data)
+                console.log("wrong params")
+                return "wrong parameters to sign message"
+            }
+            
         },
 
       };`

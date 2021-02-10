@@ -25,6 +25,7 @@ import SendTokens from './Transaction/SendTokens'
 import AllowAccess from './Content/AllowAccess'
 import CallSmartContract from './Content/CallSmartContract'
 import SendSmartContract from './Content/SendSmartContract'
+import SignMessageContent from './Content/SignMessage'
 
 import Cookies from 'js-cookie'
 
@@ -36,7 +37,7 @@ import { SEND_TO_CONTENT } from '../../../../../event/src/types/sendToContent'
 import { SendTokensPath, AddTokenPath, HomePath, LoginPath, SignupPath, SendFundsPath, PasswordPath, AddFirstAccountPath, AddNewAccountPath, CreateNewAccountPath, CreateTokenPath, SignMessagePath } from '../utils/constants'
 import { CHANGE_VIEW } from '../../../../../event/src/types/gotoView'
 
-import { GRANT_CLIENT_ACCESS, CALL_SMART_CONTRACT, SEND_SMART_CONTRACT } from '../../../../../utils/constants/FunctionsType'
+import { GRANT_CLIENT_ACCESS, CALL_SMART_CONTRACT, SEND_SMART_CONTRACT, SIGN_TOPIC_AND_MESSAGE } from '../../../../../utils/constants/FunctionsType'
 
 class App extends Component {
     state = {
@@ -109,6 +110,8 @@ class App extends Component {
                     return <CallSmartContract />
                 case SEND_SMART_CONTRACT:
                     return <SendSmartContract />
+                case SIGN_TOPIC_AND_MESSAGE:
+                    return <SignMessageContent />
                 default:
                     return <Home />
             }

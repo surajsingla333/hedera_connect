@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import Cookies from 'js-cookie';
 
 import { generateWindowHederaElement } from '../utils/windowElement'
-import { ALLOW_CLIENT_ACCESS, CALL_TO_SIGN_TRANSACTION, SEND_TO_SIGN_TRANSACTION } from '../utils/EventConstants'
-import { GRANT_CLIENT_ACCESS, CALL_SMART_CONTRACT, SEND_SMART_CONTRACT } from '../../../../../utils/constants/FunctionsType'
+import { ALLOW_CLIENT_ACCESS, CALL_TO_SIGN_TRANSACTION, SEND_TO_SIGN_TRANSACTION, SIGN_MESSAGE } from '../utils/EventConstants'
+import { GRANT_CLIENT_ACCESS, CALL_SMART_CONTRACT, SEND_SMART_CONTRACT, SIGN_TOPIC_AND_MESSAGE } from '../../../../../utils/constants/FunctionsType'
 import { CALL_FUNCTION, RESET_CONTENT_ACTIONS } from '../../../../../event/src/types/content/callText'
 
 
@@ -15,29 +15,8 @@ class App extends Component {
         value: "ME VALUE",
     }
 
-
-    componentWillMount() { }
-
     componentDidMount() {
 
-
-        document.addEventListener('my_event', async (e) => {
-            console.log("GETTING E", e);
-            await this.callEvent(e.detail);
-        })
-
-        document.addEventListener('transfer', async (e) => {
-            console.log("GETTING E", e);
-            await this.transfer(e.detail);
-        })
-        document.addEventListener('invoke', async (e) => {
-            console.log("GETTING E", e);
-            await this.invoke(e.detail);
-        })
-        document.addEventListener('send', async (e) => {
-            console.log("GETTING E", e);
-            await this.send(e.detail);
-        })
         document.addEventListener(ALLOW_CLIENT_ACCESS, (e) => {
             console.log("GETTING E in client access", e);
             this.getClientAccess(e)
@@ -51,6 +30,11 @@ class App extends Component {
         document.addEventListener(SEND_TO_SIGN_TRANSACTION, (e) => {
             console.log("GETTING E in singing transaction in send", e);
             this.sendSmartContract(e.detail)
+        })
+
+        document.addEventListener(SIGN_MESSAGE, (e) => {
+            console.log("GETTING E in singing message", e);
+            this.signTopicAndMessage(e.detail)
         })
 
         const { account, value } = this.state;
@@ -84,9 +68,6 @@ class App extends Component {
     callSmartContract = (e) => {
         console.log(e)
         this.props.sendFunction({ type: CALL_SMART_CONTRACT, dataFromWeb: e });
-        // await this.props.operationID;
-        // return "VALUE";
-        // return new Promise(function (resolve, reject) {
         let intervalId = setInterval(() => {
             const { contentActions } = this.props
             const { dataToWeb, actionToWeb } = contentActions
@@ -105,9 +86,6 @@ class App extends Component {
     sendSmartContract = (e) => {
         console.log(e)
         this.props.sendFunction({ type: SEND_SMART_CONTRACT, dataFromWeb: e });
-        // await this.props.operationID;
-        // return "VALUE";
-        // return new Promise(function (resolve, reject) {
         let intervalId = setInterval(() => {
             const { contentActions } = this.props
             const { dataToWeb, actionToWeb } = contentActions
@@ -123,102 +101,28 @@ class App extends Component {
         }, 1000);
     }
 
-    barCall1(v) {
-        console.log("INSIDE BAR CALL1");
-        console.log(v, this.state);
-    }
-
-    async barCall(v) {
-        console.log("INSIDE BAR CALL", v);
-        return "PROMISE";
-    }
-
-    async transfer(data) {
-
-        // this.setState({ functionType: 'transfer', functionValue: data });
-        console.log("GOT DATA", data);
-        // console.log('EVENT Call')
-        // this.props.sendFunction(this.state);
-        // // await this.props.operationID;
-        // // return "VALUE";
-        // // return new Promise(function (resolve, reject) {
+    signTopicAndMessage = (e) => {
+        console.log(e)
+        this.props.sendFunction({ type: SIGN_TOPIC_AND_MESSAGE, dataFromWeb: e });
         // let intervalId = setInterval(() => {
-        //     if (this.props.operationID) {
-        //         let event = new CustomEvent("transferResponse", { detail: this.props.operationID });
+        //     const { contentActions } = this.props
+        //     const { dataToWeb, actionToWeb } = contentActions
+        //     console.log("DATATOWEB ", dataToWeb, "\n actoToWeb", actionToWeb)
+        //     if (actionToWeb && Object.keys(dataToWeb).length > 0) {
+        //     console.log("DATATOWEB ", dataToWeb, "\n actoToWeb", actionToWeb)
+
+        //         let event = new CustomEvent("signMessageResponse", { detail: dataToWeb });
         //         document.dispatchEvent(event);
-        //         this.props.refreshOperation(this.state);
+        //         this.props.resetContentActions({});
         //         clearInterval(intervalId);
         //     }
         // }, 1000);
-
-    }
-
-    async send(data) {
-
-        // this.setState({ functionType: 'sendFunction', functionValue: data });
-        console.log("GOT DATA", data);
-        // console.log('EVENT Call')
-        // this.props.sendFunction(this.state);
-        // // await this.props.operationID;
-        // // return "VALUE";
-        // // return new Promise(function (resolve, reject) {
-        // let intervalId = setInterval(() => {
-        //     if (this.props.operationID) {
-        //         let event = new CustomEvent("sendResponse", { detail: this.props.operationID });
-        //         document.dispatchEvent(event);
-        //         this.props.refreshOperation(this.state);
-        //         clearInterval(intervalId);
-        //     }
-        // }, 1000);
-
-    }
-
-    async invoke(data) {
-
-        // this.setState({ functionType: 'contractInvoke', functionValue: data });
-        console.log("GOT DATA", data);
-        // console.log('EVENT Call')
-        // this.props.sendFunction(this.state);
-        // // await this.props.operationID;
-        // // return "VALUE";
-        // // return new Promise(function (resolve, reject) {
-        // let intervalId = setInterval(() => {
-        //     if (this.props.operationID) {
-        //         let event = new CustomEvent("invokeResponse", { detail: this.props.operationID });
-        //         document.dispatchEvent(event);
-        //         this.props.refreshOperation(this.state);
-        //         clearInterval(intervalId);
-        //     }
-        // }, 1000);
-
-    }
-
-    async callEvent(v) {
-        // this.setState({ functionType: 'message', functionValue: v });
-        console.log("GOT DATA", v)
-        // console.log('EVENT Call')
-        // this.props.sendFunction(this.state);
-        // // await this.props.operationID;
-        // // return "VALUE";
-        // // return new Promise(function (resolve, reject) {
-        // let intervalId = setInterval(() => {
-        //     if (this.props.operationID) {
-        //         let event = new CustomEvent("bar", { detail: this.props.operationID });
-        //         document.dispatchEvent(event);
-        //         this.props.refreshOperation(this.state);
-        //         clearInterval(intervalId);
-        //     }
-        // }, 1000);
-        // });
-
-        // alert('SECOND ALERT')
     }
 
     render() {
         const { currentAccount } = this.props
         return (
             <div>
-                {/* <h1>Account: {currentAccount.currentAccountId}, {currentAccount.currentAccountName}</h1> */}
             </div>
         )
     }

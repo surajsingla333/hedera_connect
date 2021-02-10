@@ -241,10 +241,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendAccountToContent: newState => dispatch({ type: SEND_TO_CONTENT, state: newState }),
-        addAccountWithPK: (newState) => dispatch({ type: STORE_ACCOUNT, state: newState }),
         changeView: newState => dispatch({ type: CHANGE_VIEW, state: newState }),
-        setTokenInData: newState => dispatch({ type: ADD_NEW_TOKEN, state: newState })
     }
 }
 
