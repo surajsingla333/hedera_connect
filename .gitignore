@@ -1,6 +1,9 @@
 # Package-lock.json
 .package-lock.json
 
+# Env.js
+*env.js
+
 # Logs
 logs
 *.log

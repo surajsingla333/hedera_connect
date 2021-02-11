@@ -13,7 +13,7 @@ import { SEND_TO_CONTENT } from '../../../../../event/src/types/sendToContent'
 
 import { RESET_CONTENT_ACTIONS } from '../../../../../event/src/types/content/callText'
 
-import { inThirtyMinutes, SET_NEW_BALANCE_IN_HOME, HomePath, CreateTokenPath, AddNewAccountPath, CreateNewAccountPath, AddTokenPath, SignMessagePath } from '../utils/constants'
+import { inThirtyMinutes, SET_NEW_BALANCE_IN_HOME, HomePath, CreateTokenPath, AddNewAccountPath, CreateNewAccountPath, AddTokenPath, SignMessagePath, TopicDetailsPath } from '../utils/constants'
 
 class Header extends Component {
     state = {
@@ -206,6 +206,7 @@ class Header extends Component {
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(AddTokenPath)}>Add existing token to wallet</Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(SignMessagePath)}>Sign Message</Dropdown.Item>
+                                <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(TopicDetailsPath)}>Topic details</Dropdown.Item>
                                 <Dropdown.Divider />
 
                             </DropdownButton>

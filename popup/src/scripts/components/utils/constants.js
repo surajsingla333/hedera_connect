@@ -24,6 +24,7 @@ export const CreateNewAccountPath = "CreateNewAccount"
 export const CreateTokenPath = "CreateToken"
 export const AddTokenPath = "AddToken"
 export const SignMessagePath = "SignMessage"
+export const TopicDetailsPath = "TopicDetails"
 
 // native tokens hbar tiny_hbar
 
