@@ -41,22 +41,24 @@ class Header extends Component {
             }, () => console.log("header update", this.state))
     }
 
-    onRadioChange = (e) => {
+    onRadioChange = (e, value) => {
+        console.log("e", e, e.target.value, value)
         e.preventDefault(e);
-        Cookies.set('network', e.target.value);
-        this.setState({ network: e.target.value });
-        this.props.changeNetwork(e.target.value);
+        Cookies.set('network', value);
+        this.setState({ network: value });
+        this.props.changeNetwork(value);
     }
 
-    onRadioChangeAccount = async (e) => {
+    onRadioChangeAccount = async (e, value) => {
+        console.log("E", e, e.target.value, value)
         e.preventDefault(e);
 
         const { allData } = this.state;
 
-        console.log("ACC selected", e.target.value)
-        console.log("ACC index", allData.listAccountsNames.indexOf(e.target.value))
+        console.log("ACC selected", value)
+        console.log("ACC index", allData.listAccountsNames.indexOf(value))
 
-        let changedAccount = allData.accounts[allData.listAccountsNames.indexOf(e.target.value)];
+        let changedAccount = allData.accounts[allData.listAccountsNames.indexOf(value)];
         console.log("ACC details", changedAccount)
 
         let p = Cookies.get("password");
@@ -144,10 +146,12 @@ class Header extends Component {
             let accounts = allData.listAccountsNames;
 
             listOfAccounts = accounts.map((account, key) =>
+                <Dropdown.Item key={key} val2={key} value={account} onClick={(e) => this.onRadioChangeAccount(e, account)}>{account}</Dropdown.Item>
 
-                <option key={key} val2={key} value={account}>
-                    {account}
-                </option>
+
+                // <option key={key} val2={key} value={account}>
+                //     {account}
+                // </option>
             )
         }
 
@@ -175,30 +179,37 @@ class Header extends Component {
     networkOptions(accounts) {
         if (this.state.selectedValue && this.state.selectedValue !== "") {
             return (
-                <Container>
+                <Container className="p_0">
                     <Row>
                         <Col>
-                            <Form onChange={this.onRadioChange}>
+                            {/* <Form onChange={this.onRadioChange}>
                                 <Form.Group controlId="network_dropdown">
                                     <Form.Control as="select" value={Cookies.get("network")} size="sm" custom readOnly>
                                         <option value="testnet">TestNet</option>
                                     </Form.Control>
                                 </Form.Group>
-                            </Form>
+                            </Form> */}
+                            <DropdownButton size="sm" title="Network">
+                                <Dropdown.Item onClick={(e) => this.onRadioChange(e, "testnet")}>TestNet</Dropdown.Item>
+                            </DropdownButton>
                         </Col>
 
                         <Col>
-                            <Form onChange={this.onRadioChangeAccount}>
+                            {/* <Form onChange={this.onRadioChangeAccount}>
                                 <Form.Group controlId="accounts_dropdown">
                                     <Form.Control as="select" value={this.state.selectedValue} size="sm" custom>
                                         {accounts}
                                     </Form.Control>
                                 </Form.Group>
-                            </Form>
+                            </Form> */}
+                            <DropdownButton size="sm" title="Accounts">
+                            {accounts}
+                            </DropdownButton>
+
                         </Col>
 
                         <Col>
-                            <DropdownButton size="sm" title="Acc">
+                            <DropdownButton size="sm" title="Settings">
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(CreateNewAccountPath)}>Create new account</Dropdown.Item>
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(AddNewAccountPath)}>Add new account</Dropdown.Item>
                                 <Dropdown.Divider />
@@ -208,7 +219,6 @@ class Header extends Component {
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(SignMessagePath)}>Sign Message</Dropdown.Item>
                                 <Dropdown.Item onClick={() => this.props.gotoNewViewFromHeader(TopicDetailsPath)}>Topic details</Dropdown.Item>
                                 <Dropdown.Divider />
-
                             </DropdownButton>
                         </Col>
 

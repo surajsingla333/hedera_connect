@@ -19,6 +19,9 @@
 }
 
 /* padding */
+.p_0{
+    padding: 0px;
+}
 .pr_0{
     padding-right: 0px;
 } 
@@ -176,20 +179,22 @@ select option:active{
     border: black;
 }
 .back_button .back_arrow {
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 17px solid #f5efef;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 14px solid #f5efef;
     z-index: 1;
     position: absolute;
     left: 4px;
     top: 5px;
+    margin-top: 5px;
+    margin-left: 3px;
 }
 .back_button:hover {
     background-color: #f5efef;
 }
 .back_button:hover + .back_button:hover .back_arrow,
 .back_button .back_arrow:hover {
-    border-right: 17px solid var(--primary-color-1);
+    border-right: 14px solid var(--primary-color-1);
 }
 .footer_left {
     position: absolute;
