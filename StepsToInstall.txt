@@ -1,0 +1,9 @@
+1) Unzip the folder (which you already did since you are reading this file)
+2) Open Google Chrome
+3) Type `chrome://extensions/` on the address bar
+4) On the top left corner, you will see a button `Load Unpacked`
+5) Click on `Load Unpacked` button
+6) Goto the extract folder
+7) Select the `build` folder
+8) Click OK
+9) The extension will be added on the chrome browser.
