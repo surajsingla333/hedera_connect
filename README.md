@@ -16,6 +16,7 @@ Various Hedera APIs and services which are currently used are:
 
 [Hedera Cryptocurrency Accounts](https://docs.hedera.com/guides/docs/hedera-api/cryptocurrency-accounts), to create, add, and manage Hedera Accounts. \
 [Hedera Token Service](https://docs.hedera.com/guides/docs/hedera-api/token-service), for creating and managing tokens in the wallet. \
+[Hedera Consensus Service](https://docs.hedera.com/guides/docs/hedera-api/consensus-service), for creating and managing topics and fetching details from the wallet. \
 [Hedera Smart Contracts](https://docs.hedera.com/guides/docs/hedera-api/smart-contracts), for interacting with smart contracts based dApps.
 
 ###### For more details about Hedera Hashgraph goto :  https://docs.hedera.com/guides/
@@ -39,7 +40,7 @@ Select the `build` folder on the popup window and click ok.
 
 You will see the extension on your browser.
 
-Alternatively, you can download the `build.zip` file from this repository only. Click [here](https://github.com/surajsingla333/hedera_connect/blob/main/build.zip) to download.\
+Alternatively, you can download the `build.zip` file from this repository only. Click [here](https://github.com/surajsingla333/hedera_connect/blob/main/ProductionBuildAndSteps.zip) to download.\
 Unzip the downloaded file and follow the above steps in Google Chrome to install the extension.
 
 
@@ -90,8 +91,14 @@ For example:\
 
 ### Security
 All of the users details will be stored in a secured extension environment only and no data is stored on servers. This will ensure that the data is not exposed online and users will have complete control over their private keys even as they use this extension.\
-Users will only have one way to retrieve their account, which is by using the account's private key, so it is adviced to the users to securely store their accounts` private keys.
+Users will only have one way to retrieve their account, which is by using the account's private key, so it is adviced to the users to securely store their accounts' private keys.
 
 The private keys are encrypted using the user's password so as to protect the wallet from any offline attacks and the user password itself is securely hashed and only the hashes are matched to confirm the login. \
 If the user forgets his password, currently, he won't be able to login and the account will be locked in. So it is highly recommended to securely store the password as well.
 
+### Future 
+1. UI improvements
+2. Chat system for live messages in a topic (using Consensus service)
+3. Update, freeze, and other token functionalities
+4. Better smart contract/dApps integration
+5. Support for other browsers such as Mozilla Firefox.
