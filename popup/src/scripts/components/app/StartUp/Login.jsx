@@ -76,7 +76,7 @@ class Login extends Component {
         return (
             <Card className="m_10 text_align_center z_100000 bg_transparent">
                 <Card.Body>
-                    <Card.Title>Hedera Wallet</Card.Title>
+                    <Card.Title>Saral Wallet</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Login</Card.Subtitle>
                     <Card.Text>
 
