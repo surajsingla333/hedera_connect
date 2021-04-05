@@ -165,8 +165,8 @@ class Header extends Component {
                             this.props.gotoNewViewFromHeader(HomePath)
                             this.props.resetContentCalls({})
                         }}><div className="back_arrow"></div></Button></Col>
-                    <Col className="text_align_center">
-                        <h6>Hedera connect</h6>
+                    <Col className="d-flex justify_content_center align_items_center text_align_center">
+                        <h6>Saral Wallet</h6>
                     </Col>
                 </Row>
                 <Row className="mt_10">

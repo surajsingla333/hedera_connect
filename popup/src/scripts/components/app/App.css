@@ -18,6 +18,14 @@
     display: flex;
 }
 
+/* display alignment */
+.justify_content_center{
+    justify-content: center;
+}
+.align_items_center{
+    align-items: center;
+}
+
 /* padding */
 .p_0{
     padding: 0px;
@@ -30,6 +38,9 @@
 }
 .pt_10 {
     padding-top: 10px;
+}
+.pb_20 {
+    padding-bottom: 20px;
 }
 .p_10 {
     padding: 10px;

@@ -1,6 +1,6 @@
-# Hedera Connect
+# Saral Wallet for Hedera
 
-Hedera connet is a browser extension wallet for Hedera Hashgraph. 
+Saral Wallet for Hedera is a browser extension wallet for Hedera Hashgraph. 
 
 The wallet will enable the users to manage hedera accounts in the browser without any other dependency. This can also be used to interact with dApps built on Hedera hashgraph. Using the wallet, users will also be able to create and manage Token built on hedera.
 

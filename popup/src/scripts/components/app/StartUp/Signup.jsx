@@ -21,7 +21,8 @@ class Signup extends Component {
         return (
             <Card className="m_10 text_align_center z_100000 bg_transparent">
                 <Card.Body>
-                    <Card.Title>HEDERA CONNECT</Card.Title>
+                    <Card.Title>Saral Wallet</Card.Title>
+                    <Card.Subtitle className="pb_20">for Hedera</Card.Subtitle>
                     <Card.Text>
                         <Container>
                             <Row>

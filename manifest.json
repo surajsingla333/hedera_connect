@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Hedera connect",
-  "description": "Browser Extension Wallet for Hedera",
+  "name": "Saral wallet",
+  "description": "Browser Extension Wallet for Hedera Hashgraph",
   "version": "0.0.1",
   "background": {
     "scripts": [
@@ -10,7 +10,7 @@
     "persistent": true
   },
   "browser_action": {
-    "default_title": "Hedera connect",
+    "default_title": "Saral Wallet",
     "default_popup": "popup.html"
   },
   "permissions": [
