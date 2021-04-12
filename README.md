@@ -102,3 +102,11 @@ If the user forgets his password, currently, he won't be able to login and the a
 3. Update, freeze, and other token functionalities
 4. Better smart contract/dApps integration
 5. Support for other browsers such as Mozilla Firefox.
+
+
+
+## Privacy Policy and Security
+All the data that users add in the extension, is not stored on any server and is not tracked by any packages used in the development. \
+The private/public keys added to connect to the wallet are stored in the extensions local storage only and is not monitored by anyone. \
+The encrypted keys are not human readable and will only be decrypted in the extension using the users' password. In case, you forget your password, the only way to get in would be to reinstall the wallet and add your private keys again. \
+We take no responsibility if the user looses his/her private keys.

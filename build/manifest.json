@@ -18,11 +18,7 @@
     "default_title": "Saral Wallet",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "storage",
-    "notifications",
-    "tabs"
-  ],
+  "permissions": [],
   "content_scripts": [
     {
       "matches": [
